@@ -71,4 +71,11 @@ document.addEventListener("DOMContentLoaded", () => {
       .querySelectorAll(".book-card")
       .forEach((card) => card.classList.remove("added-to-cart"));
   });
+  searchInput.addEventListener("input", (b) => {
+    const searchTerm = b.target.value.toLowerCase();
+    const filteredBooks = books.filter((book) =>
+      book.title.toLowerCase().includes(searchTerm)
+    );
+    renderBooks(filteredBooks);
+  });
 });
